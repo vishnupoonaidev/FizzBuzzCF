@@ -84,4 +84,22 @@ main>.container {
 }
 
 
+.primary{
+    color: var(--dark-color);
+}
 
+
+
+.Fizz{
+    color: #00b11d;
+}
+
+.Buzz{
+    color: #b100b1;
+}
+
+
+.FizzBuzz{
+    color: #b10000;
+    font-weight: bold;
+}
