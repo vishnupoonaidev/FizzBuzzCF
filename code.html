@@ -2,7 +2,7 @@
 <html lang="en" class="h-100">
 
 <head>
-    <title>App Name: A Coding Project By Vishnu Poonai</title>
+    <title>FizzBuzz: A Coding Project By Vishnu Poonai</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -24,7 +24,7 @@
 <!-- ===== Nav section ====== -->
 <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="index.html"><img src="img/favabefore.png" class="d-inline-block align-text-top" width="30" height="24">  APP NAME</a>
+        <a class="navbar-brand" href="index.html"><img src="img/favabefore.png" class="d-inline-block align-text-top" width="30" height="24">  FIZZBUZZ</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
             aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -53,22 +53,134 @@
 <!-- ===== Main section ====== -->
 <main class="flex-shrink-0"> 
     <div class="container py-5 px-5 mt-5">
-       <h1 class="border-1 border-bottom border-dark">The Code for APP NAME</h1>
+       <h1 class="border-1 border-bottom border-dark">The Code for FIZZBUZZ</h1>
         <div class="row row-cols-1 row-cols-lg-2">
             <div class="col-lg-8">
                 <pre class="Line-numbers">
                     <code class="language-javascript">
-                        //Call HelloWorld
-                        function HelloWorld(){
-                          alert("hello World");
+                        function getValues() 
+                        {
+                            //1. get value to test Fizz
+                            //DO:
+                            //Use "let" to declare a variable "fizzValue".  
+                            //Assign it the value that you find in the the Html element
+                            //with the id "fizzValue".  HINT: Use document.getElementById
+                            let fizzValue = document.getElementById("fizzValue").value;
+                            let buzzValue = document.getElementById("buzzValue").value;
+                        
+                                //3. check for numbers
+                            //DO:
+                            //Convert "fizzValue" to an integer using parseInt()
+                        
+                            fizzValue = parseInt(fizzValue);
+                            buzzValue = parseInt(buzzValue);
+                            
+                            
+                            //4. check for numbers
+                            //DO:
+                            //Convert "buzzValue" to an integer using parseInt()
+                        
+                            //5. validate that "fizzValue" and "buzzValue" are actually Numbers.
+                            //DO:
+                            //Use an "if-else-statement" to test the logical conjunction (AND &&) 
+                        
+                        
+                            if (Number.isInteger(fizzValue)  && Number.isInteger(buzzValue)) {
+                                
+                                //we call generateNumbers
+                              let fbData = fizzBuzz(fizzValue,buzzValue);
+                        
+                            //we call displaydata
+                             displayData(fbData);
+                        
+                            }else{
+                                alert("Please enter only numbers into the Fizz and Buzz input boxes.")
                             }
+                        
+                        
+                        
+                        }
+                        
+                        
+                        function fizzBuzz(fizzValue,buzzValue){
+                        
+                        let returnArray =[];
+                        
+                        for (let index = 1; index < 100; index++) {
+                           
+                            if (index % fizzValue == 0 && index % buzzValue == 0)  {
+                        
+                                 returnArray.push('FizzBuzz');
+                                
+                            } else if (index % fizzValue == 0) {
+                        
+                                returnArray.push('Fizz');
+                                
+                            }
+                        
+                            else if(index % buzzValue == 0){
+                                returnArray.push('Buzz');
+                            }
+                        
+                            else{
+                                returnArray.push(index);
+                            }
+                            
+                        }
+                        
+                        return returnArray;
+                        
+                        }
+                        
+                        
+                        
+                        function displayData(fbData){
+                        
+                         let templateRows = "";
+                        
+                        
+                         for (let index = 0; index < fbData.length; index++) {
+                        
+                                let fizzBuzzResult = fbData[index];
+                            
+                                let fizzColour = "primary"
+                         
+                            if (fizzBuzzResult == "Fizz") {
+                                fizzColour = "green"
+                                
+                            } else if(fizzBuzzResult == "Buzz") {
+                                fizzColour = "purple"
+                            }else if(fizzBuzzResult == "FizzBuzz"){
+                                fizzColour = "red"
+                            }else{
+                                fizzColour = "primary"
+                            }
+                        
+                            templateRows += `<tr><td class="${fizzColour}">${fizzBuzzResult}</td></tr>`;
+                        
+                            
+                         }
+                        
+                         document.getElementById("results").innerHTML = templateRows;
+                        
+                        }
                     </code>
                 </pre>       
             </div>
             <div class="col-lg-4">
-               <p>The Code is structured in one function.</p>
-               <h4>Hello World</h4>
-               <p>Hello world is a function that displays an alert with a message of "hello World"</p>
+                <p>The Code is structured in three functions.</p>
+                <h4>getValues - Function</h4>
+                <p>This function allows us to grab the fizz and buzz values from the user on the app page using grab element by ID.
+                 The function also checks to validate that integers are being entered.
+                </p>
+ 
+                <h4>fizzBuzz - Function</h4>
+                <p>This function takes the fizz and buzz values then using a for loop it iterates from start to end of 100 all while dividing using the modulus of the fiiz and buzz values if any value is divisiable by the fizz and buzz values then it will be stored as fizz or buzz
+                    if can be divised by both then it is stored as fizzbuzz.  </p>
+ 
+                <h4>displayData - Function</h4>
+                <p>The display numbers uses a for loop to iterate through the array of generated numbers to add table rows to the resutls table 
+                 in the app page. IF functions check the outcome and depenidng on fizz, buzz or fizzbuzz then the class colour will be altered using a css function.</p>
             </div>
         </div>
     </div>
